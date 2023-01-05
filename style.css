@@ -1,0 +1,57 @@
+.bio {
+  position: absolute;
+  height: fit-content;
+  width: 50%;
+  line-height: 35px;
+  font-size: 21px;
+  margin: 7% 25%;
+  background-color: #0a5275;
+  color: white;
+  padding: 50px 60px;
+  opacity: 0.8;
+  border-radius: 5%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+@media screen and (min-width: 360px){
+  .bio {
+    width: fit-content;
+    margin-top: 21%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: medium;
+    line-height: auto;
+    padding: 15px 20px;
+    border-radius: 15px;
+    z-index: -1111;
+  }
+}
+
+@media screen and (min-width: 800px){
+  .bio {
+    width: fit-content;
+    margin-top: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 32px;
+    line-height: 45px;
+    padding: 15px 20px;
+    border-radius: 15px;
+    z-index: -1111;
+  }
+}
+
+@media screen and (min-width: 1000px){
+  .bio {
+    width: fit-content;
+    margin-top: 9%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 18px;
+    line-height: auto;
+    padding: 15px 20px;
+    border-radius: 15px;
+    z-index: -1111;
+  }
+}
