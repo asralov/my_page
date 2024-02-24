@@ -80,15 +80,30 @@ main div{
   }
   
   /* Apply the animation to the main content with delay */
-  main {
+ main {
     animation: fadeIn 1s ease-in-out 0.1s forwards;
     opacity: 0; /* Ensure the element is initially hidden */
-  }
+}
 
-  #desc{
+#desc{
     background-color: #ffffff;
     transform: translateX(-8%);
     padding: 1rem 2rem;
     text-align: left;
     border: solid 0.5px rgba(0, 0, 0, 0.5);
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    width: 50%; /* Each column takes 50% width */
+}
+th {
+    background-color: #f2f2f2;
 }

@@ -1,0 +1,52 @@
+{
+    "classes": [
+      {
+        "name": "CSC 345 - Analysis of Discrete Structures",
+        "description": "Introduction to and analysis of algorithms and characteristics of discrete structures. Course topics include algorithm analysis techniques, recurrence relations, structural induction, hierarchical structures, graphs, hashing, and sorting"
+      },
+      {
+        "name": "CSC 252 - Computer Organization",
+        "description": "Basic machine organization; elementary hardware concepts; CPU internals.  Machine operations and instructions; assembly language concepts and programming"
+      },
+      {
+        "name":"CSC 346 - Cloud Computing",
+        "description":"This course focuses on cloud programming, with an emphasis on using the cloud to solve Big Data problems. The course will not only look at how distributed systems, databases, networks, etc. are used to implement cloud computing platforms and cloud applications, but also the impact of the infinite scalability and pay-as-you-go on the platforms and applications."
+      },
+      {
+        "name":"MATH 313 - Introduction to Linear Algebra",
+        "description":"An algorithmic approach to solving systems of linear equations transitions into the study of vectors, vector spaces and dimension. Matrices are used to represent linear transformations and this leads to eigenvectors and eigenvalues. The precise use of definitions plays an important role. Examinations are proctored. This course is required in the math major and prepares students to take Math 323. It is a prerequisite to the majority of the higher level courses in mathematics."
+      },
+      {
+        "name": "CSC  337 - Web Programming",
+        "description":"Introduction to the techniques and technologies for developing dynamic web sites. Topics include a web server, PHP as the server-side scripting language, the MySQL database, JavaScript and AJAX for enriching web services, and page layout with HTML and CSS. Security concerns will be considered with details for prevention of such vulnerabilities in web applications. This course includes a team project to deploy a dynamic website. Weekly laboratory."
+      },
+      {
+        "name":"CSC 244 - Discrete Mathematics for Computer Science II",
+        "description":"A second course in mathematical concepts for computer science.  Topics include: recurrence relations; proofs in propositional and first-order predicate logic; mathematical induction; graphs and trees; regular expressions and finite state machines."
+      },
+      {
+        "name":"CSC 210 - Software Development",
+        "description":"An introduction to the development of large­ scale software. Topics include modularization, design patterns, documentation, unit testing, source code control, build systems, debuggers, and performance tuning; all of the tools necessary for developing software as opposed to writing small programs"
+      },
+      {
+        "name":"MATH 122B - First-Semester Calculus",
+        "description":"An introduction to first-semester calculus for engineering, science and math students, from rates of change to integration, with an emphasis on understanding, problem solving, and modeling. Topics covered include key concepts of derivative and definite integral, techniques of differentiation, and applications, using algebraic and transcendental functions.  A graphing calculator is required for this course. We recommend the TI-83 or TI-84 models. Calculators that perform symbolic manipulations, such as the TI-89, NSpire CAS, or HP50g, cannot be used. Examinations are proctored. Except as per University policy on repeating a course, credit will not be given for this course if the student has credit in a higher level math course. Such students may be dropped from the course."
+      },
+      {
+        "name":"CSC 120 - Introduction to Computer Programming II",
+        "description":"Provides a continuing introduction to programming with an emphasis on problem­solving. It considers problems drawn from a variety of domains (including Computer Science) and emphasizes both the broader applicability of the relevant data structures and programming concepts, as well as the implementation of those structures and concepts in software. Topics include arrays, lists, stacks, queues, trees, searching and sorting, and exceptions."
+      },
+      {
+        "name":"CSC 144 - Discrete Mathematics for Computer Science I",
+        "description":"The first of a two-course sequence introducing mathematical concepts for Computer Science. Topics include: sets, functions, and relations; propositional and predicate logic; foundational combinatorics; discrete probability; modular arithmetic; and proofs."
+      },
+      {
+        "name":"MATH 120R - Calculus Preparation",
+        "description":"Review of algebra and trigonometry; study of functions including polynomial, rational, exponential, logarithmic and trigonometric.  A graphing calculator is required for this course. We recommend the TI-83 or TI-84 models. Calculators that perform symbolic manipulations, such as the TI-89, NSpire CAS, or HP50g, cannot be used. For students who have high school credit in college algebra and trigonometry but have not attained a sufficient score on the UA Math Placement Test to enter calculus. Except as per University policy on repeating a course, credit will not be given for this course if the student has credit in a higher level math course. Such students may be dropped from the course. Examinations are proctored."
+      },
+      {
+        "name":"CSC  110 - Introduction to Computer Programming I",
+        "description":"An introduction to programming with an emphasis on solving problems drawn from a variety of domains. Topics include basic control and data structures, problem solving strategies, and software development tools and techniques."
+      }
+    ]
+  }
