@@ -26,7 +26,7 @@ function showBio(){
 }
 
 function showName() {
-    let msg = "Hello I am Alex, and welcome to my page...";
+    let msg = "Hello I am Abror, and welcome to my page...";
     let current = "";
     let index = 0;
 
