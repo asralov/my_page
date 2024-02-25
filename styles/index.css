@@ -13,7 +13,7 @@
 
 body
 {
-    background-color: #d7e1ff;
+    background-color: #ebf0ff;
     margin: 0;
     padding: 0;
 }
@@ -21,6 +21,9 @@ body
 nav{
     background-color: #577df3;
     box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 101;
 }
 
 nav button{
@@ -44,7 +47,7 @@ main{
     
     justify-content:space-evenly;
 
-    margin-top: 5rem;
+    margin-top: 2rem;
 }
 
 main div{
@@ -64,6 +67,7 @@ main div{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 3rem;
 
 }
 
@@ -91,19 +95,25 @@ main div{
     padding: 1rem 2rem;
     text-align: left;
     border: solid 0.5px rgba(0, 0, 0, 0.5);
+    margin-top: 3rem;
 }
 
 
 table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
+    font-weight: 400;
+    margin-bottom: 2rem;
 }
 th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    line-height: 1.5;
     text-align: left;
     width: 50%; /* Each column takes 50% width */
+    background-color: #f2f2f2;
 }
 th {
     background-color: #f2f2f2;
 }
+

@@ -89,7 +89,39 @@ function putHome()
 
 function putProgress()
 {
-    document.getElementsByTagName("main")[0].innerHTML = '<h1>PROGRESS</h1>'
+    document.getElementsByTagName('main')[0].id = "mainProgress";
+    document.getElementById("mainProgress").innerHTML = `
+    <table>
+    <thead>
+        <tr>
+            <th>Class Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+        <tbody id="tableBody">
+        
+        </tbody>
+    </table>
+    
+    `
+
+    // Load JSON data
+    let url = "/components/progress.json";
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        // Generate table rows dynamically
+        const tableBody = document.getElementById('tableBody');
+        tableBody.innerHTML = ''; // Clear existing content
+        data.classes.forEach(cls => {
+            const row = `<tr>
+                            <td>${cls.name}</td>
+                            <td>${cls.description}</td>
+                        </tr>`;
+            tableBody.innerHTML += row;
+        });
+    })
+    .catch(error => console.error('Error fetching data:', error));
 }
 function putProjects()
 {
@@ -97,7 +129,7 @@ function putProjects()
 }
 function putSkills()
 {
-    document.getElementsByTagName("main")[0].innerHTML = '<h1>SKILLS</h1>'
+    document.getElementsByTagName("main")[0].innerHTML = '<h1>SKILLS</h1>'   
 }
 
 function redirectToEmail() 
