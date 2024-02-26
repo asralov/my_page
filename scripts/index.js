@@ -1,8 +1,31 @@
 window.addEventListener('load', () => {
     document.getElementById("loader").style.display = "none";
+    document.getElementsByTagName("nav")[0].style = 
+    `
+    background-color: #577df3;
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 101;
+    
+    `;
     putHome();
     showName();
     showBio();
+    document.getElementsByTagName("footer")[0].style = `    
+    background-color: #b9c9f8;
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.5);
+    position:fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 101;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 2rem;`
+
 })
 
 function showBio(){
