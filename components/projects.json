@@ -1,0 +1,24 @@
+{
+    "projects":[
+        {
+            "image":"./components/project_img/wordSearch.png",
+            "desc":"This Project, introduces a text-based word search game. The program engages users in a game where they decide whether to start a new word search, choose the grid size (ranging from 5 to 10), and then proceed to find words hidden within the randomly generated grid. The user repeatedly inputs words they believe exist horizontally, vertically, or diagonally in the grid. The game informs users about the number of remaining words after each guess and handles scenarios where a word has already been guessed or does not exist. Additionally, users have the option to use help tickets to reveal a random word. The game continues until the user decides to exit.<br><br>Tools: Python",
+            "source":"https://github.com/asralov/wordSearchGame"
+        },
+        {
+            "image":"./components/project_img/losethebias.jpg",
+            "desc":"This is a group project for my CSC337 - Web Development class where we have implmented a web application that produces summaries for readers about the latest news happening worldwide. They are able to read what ChatGPT have produced as a short summary about happening situation in the world. We have run a script to make ChatGPT make summaries as JSON files so we can retireve them and show to readers. On this website, user is able to create an account, then log in. It has nice features to change user settings as well as choose favorite topics by categories. They are able to interract with other readers in the comment section under each post, and discuss what they think of an any article. They can like/dislike posts, and regarding the like/dislike ratio, we can determine what our reader is truly interested in and show them more of the liked content. <br><br>Tools: Python, JavaScript, HTML5, CSS3, MongoDB, Express.js, Digital Ocean, Github",
+            "source":"https://github.com/asralov/csc337-final-project"
+        },
+        {
+            "image":"./components/project_img/quadratic.png",
+            "desc":"This project, serves as a quadratic equation solver. Users interact with the program by entering coefficients of a quadratic expression in a specific format, and the script calculates the solutions for the variable x using the quadratic formula. The program incorporates a Quadratic class to encapsulate the relevant functionality, checking the discriminant to determine the nature of the solutions. Users can iteratively input coefficients, obtain solutions, and decide whether to continue or exit the program, making it a practical tool for solving quadratic equations interactively. <br><br>Tools: Python",
+            "source":"https://github.com/asralov/Python-Mini-Projects-For-Practice/blob/main/solveQuadratics.py"
+        },
+        {
+            "image":"./components/project_img/password_gen.webp",
+            "desc":"This program serves as a password manager, ensuring secure storage of passwords in an encrypted format. The user can choose to add new passwords or view existing ones stored in a file named 'passwords.txt'. The program employs the Fernet encryption module to generate and load cryptographic keys for securing the stored passwords. Users are prompted to input their usernames and passwords during the addition process, and the encrypted details are then written to the password file. When choosing to view passwords, the program decrypts and displays the stored information. The user-friendly interface allows users to interactively manage and retrieve their passwords. The script provides a practical solution for securely storing and accessing sensitive information. <br><br>Tools: Python",
+            "source":"https://github.com/asralov/Python-Mini-Projects-For-Practice/blob/main/master_passwords.py"
+        }
+    ]
+}

@@ -125,7 +125,36 @@ function putProgress()
 }
 function putProjects()
 {
-    document.getElementsByTagName("main")[0].innerHTML = '<h1>PROJECTS</h1>'
+    document.getElementsByTagName('main')[0].innerHTML = `<div id="projectGrid"></div>`
+
+    // Load JSON data
+    let url = "/components/projects.json";
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        // Generate table rows dynamically
+        const projectGrid = document.getElementById('projectGrid');
+        projectGrid.innerHTML = ''; // Clear existing content
+        data.projects.forEach(project => {
+            const box = `
+            <div class="projectBox">
+                <div class="imgBox">
+                    <img src="${project.image}" alt="Project Image" width="100%" height="auto">
+                </div>
+                <div class="projectDesc">
+                    <span>${project.desc}</span>
+                </div>
+                <div class="checkBtn">
+                    <button><a href="${project.source}" target="_blank">View GitHub</a></button>
+                </div>
+            </div>
+            `;
+            projectGrid.innerHTML += box;
+        });
+        projectGrid.innerHTML += `<h4>More Projects are coming soon...</h4>`
+    })
+    .catch(error => console.error('Error fetching data:', error));
+    
 }
 function putSkills()
 {
