@@ -1,5 +1,6 @@
 window.addEventListener('load', () => {
     document.getElementById("loader").style.display = "none";
+    putHome();
     showName();
     showBio();
 })
@@ -77,7 +78,8 @@ function putHome()
     let html = `
         <div id="picBox">
             <img id="pic" src="./components/me.jpg" alt="ME">
-            <p>CS Student/Web Developer</p>   
+            <p>CS Student/Web Developer</p>  
+            
         </div>
         <div id="desc">
             <h2 id="typing"></h2>
@@ -158,7 +160,20 @@ function putProjects()
 }
 function putSkills()
 {
-    document.getElementsByTagName("main")[0].innerHTML = '<h1>SKILLS</h1>'   
+    url = './components/Abrorjon Asralov - Resume.docx' 
+    fetch(url)
+    .then(response => response.blob())
+    .then(blob => {
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = 'Abrorjon Asralov - Resume.docx';
+        a.click();
+        window.URL.revokeObjectURL(blobUrl);
+    })
+    .catch(error => {
+        console.error('Error downloading resume:', error);
+    });  
 }
 
 function redirectToEmail() 
