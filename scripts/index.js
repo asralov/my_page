@@ -1,5 +1,19 @@
+let isDropped = false;
+
+
+function is_transform()
+{
+    let width = window.innerWidth;
+    if (width <= 1250)
+    {
+        return 'translateY(-260px)';
+    }
+    return 'translateY(0)'
+}
+
 window.addEventListener('load', () => {
     document.getElementById("loader").style.display = "none";
+    let transform = is_transform();
     document.getElementsByTagName("nav")[0].style = 
     `
     background-color: #577df3;
@@ -7,6 +21,7 @@ window.addEventListener('load', () => {
     position: sticky;
     top: 0;
     z-index: 101;
+    transform: ${transform};
     
     `;
     putHome();
@@ -207,4 +222,33 @@ function redirectToEmail()
     const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
 }
-  
+
+
+const closeBtn = document.getElementById("close");
+closeBtn.addEventListener('click', ()=>{
+    if (isDropped)
+    {
+        shrink();
+    }
+    else 
+    {
+        drop();
+    }
+});
+
+function shrink()
+{
+    document.getElementsByTagName("nav")[0].style.transform = "translateY(-260px)";
+    document.getElementById("close").innerHTML = `<i class='bx bx-menu'></i>`
+    isDropped = false;
+}
+
+function drop()
+{
+    document.getElementsByTagName("nav")[0].style.transform = "translateY(0)";
+    document.getElementById("close").innerHTML = `<i class='bx bx-x'></i>`
+    isDropped = true;
+}
+
+//<i class='bx bx-menu'></i>
+//<i class='bx bx-x'></i>

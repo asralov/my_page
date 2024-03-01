@@ -18,8 +18,10 @@ body
     padding: 0;
 }
 
+
 nav{
     opacity: 1;
+    transition: 0.5s ease-in-out;
 }
 footer{
     display: none;
@@ -135,10 +137,8 @@ th {
     border: solid 0.5px rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-    padding: 3rem 0;
-    
+    padding: 3rem 0;  
     gap: 1rem;
-
 }
 .imgBox{
     width: 60%; /* Adjust as needed */
@@ -179,4 +179,112 @@ th {
 a{
     text-decoration: none;
     color: #fff;
+}
+
+@media screen and (max-width: 1250px) {
+    #close
+    {
+        display: block !important;
+        margin-left: 88%;
+    }
+    nav 
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    main
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(-260px);
+        margin-top: 0;
+        
+    }
+
+    #pic 
+    {
+        border-radius: 100%;
+        width: 15rem;
+        height: 15rem;
+        
+    }
+    #picBox
+    {
+        transform: translateY(-280px);
+    }
+
+    #desc{
+        background-color: #ffffff;
+        width: 80vw;
+        text-align: left;
+        border: solid 0.5px rgba(0, 0, 0, 0.5);
+        transform: translateY(-330px);
+        margin-bottom: -280px;
+    }
+
+    table {
+        transform: translateY(-250px);
+        margin-bottom: -200px;
+        width: 95%;
+        border-collapse: collapse;
+        font-weight: 400;  
+    }
+    th, td {
+        border: 0.5px solid rgba(0, 0, 0, 0.5);
+        line-height: 1.5;
+        text-align: left;
+        width: 50%; /* Each column takes 50% width */
+        background-color: #f2f2f2;
+    }
+    th {
+        background-color: #577df3;
+        color: #fff;
+    }
+
+    .projectBox
+    {
+        width: 80%;
+    }
+
+    #projectGrid
+    {
+        transform: translateY(-240px);
+        margin-bottom: -200px;
+        justify-content: center;
+    }
+    
+
+
+}
+
+@media screen and (max-width: 450px) {
+    .projectBox
+    {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 850px)
+{
+    .projectBox
+    {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1250px)
+{
+    #projectGrid
+    {
+        flex-direction: row;
+    }
+    .projectBox
+    {
+        width: 45%;
+    }
 }
