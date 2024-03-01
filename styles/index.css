@@ -277,14 +277,3 @@ a{
     }
 }
 
-@media screen and (max-width: 1250px)
-{
-    #projectGrid
-    {
-        flex-direction: row;
-    }
-    .projectBox
-    {
-        width: 45%;
-    }
-}
