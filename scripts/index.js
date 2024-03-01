@@ -44,7 +44,7 @@ window.addEventListener('load', () => {
 })
 
 function showBio(){
-    const filePath = '/components/bio.txt';
+    const filePath = 'https://asralov.github.io/components/bio.txt';
     // Fetch the file content
     fetch(filePath)
     .then((response) => {
@@ -146,7 +146,7 @@ function putProgress()
     `
 
     // Load JSON data
-    let url = "/components/progress.json";
+    let url = "https://asralov.github.io/components/progress.json";
     fetch(url)
     .then(response => response.json())
     .then(data => {
