@@ -168,7 +168,7 @@ function putProjects()
     document.getElementsByTagName('main')[0].innerHTML = `<div id="projectGrid"></div>`
 
     // Load JSON data
-    let url = "/components/projects.json";
+    let url = "components/projects.json";
     fetch(url)
     .then(response => response.json())
     .then(data => {
