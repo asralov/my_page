@@ -1,0 +1,48 @@
+#aboutme{
+    width: 100%;
+    height: max-content;
+    background-color: black;
+    color: rgb(238, 238, 238);;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5% 0;
+}
+
+#aboutmebox{
+    width: 60%;
+    background-color: rgba(59, 59, 59,0.6);
+    height: max-content;
+    display: flex;
+    align-items: flex-start;
+    padding: 2% 3%;
+    gap: 30px;
+    /* max-width: 1000px; */
+    margin: 0 auto;
+    flex-wrap:wrap;
+}
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+}
+
+.bio {
+  flex: 1;
+  min-width: 250px;
+  line-height: 1.4;
+}
+
+.bio h2 {
+  margin-top: 0;
+  font-size: 32px;
+}
+
+.bio p {
+  font-size: 18px;
+  line-height: 1.6;
+}

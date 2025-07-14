@@ -1,5 +1,0 @@
-🚀 Tech-Enthusiast & Ambitious Learner 🌐
-Hello, I'm Abrorjon Asralov, a Computer Science student graduating in May 2026 from the University of Arizona. Currently a Student Web Developer at The Center for Digital Humanities, I specialize in crafting responsive and user-friendly websites using HTML, CSS, and JavaScript. Collaborating with senior developers, I optimize website performance, troubleshoot issues, and contribute to the creation and maintenance of professional online content.
-
-🛠️ Technical Proficiency & Academic Excellence:
-With a GPA of 3.75, I've earned accolades like an Honorable Mention and a spot on the Dean's List. My technical toolkit includes Java, JavaScript, Python, C, C#, HTML5, CSS3, and proficiency in frameworks like React and NodeJS. From unit testing to web development, I navigate projects seamlessly using tools like GitHub, Visual Studio, and more. Beyond academics, I bring practical experience as a Student Special Event Monitor and a Student Production Crew Member at Arizona Production Media, demonstrating leadership, adaptability, and a commitment to excellence.
