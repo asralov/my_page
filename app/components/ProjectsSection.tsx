@@ -28,7 +28,7 @@ const projects = [
 	},
 	{
 		id: 4,
-		title: 'From Bud To Blum',
+		title: 'From Bud To Bloom',
 		description: 'From Bud to Bloom is a 2D Unity game about plant growth and interactive environments, winning first place in the \'Bloom into the New\' Game Jam.',
 		image: '/bud_bloom.png',
 		link: "https://pulyau.itch.io/from-bud-to-bloom"
