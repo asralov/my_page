@@ -1,11 +1,8 @@
 'use client';
 
-import { DESTRUCTION } from 'dns';
 import { motion } from 'framer-motion';
-import { image } from 'framer-motion/client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { title } from 'process';
 
 const projects = [
 	{
@@ -20,14 +17,14 @@ const projects = [
 		title: 'Trie Data Structure',
 		description: 'We implemented a Trie data structure in Java, designed for fast string storage and retrieval, commonly used in tasks like autocomplete and dictionaries.',
 		image: '/trie.jpg',
-		link: ""
+		link: "https://github.com/asralov/CSC-345-Group-Project"
 	},
 	{
 		id: 3,
 		title: 'Word Search Game',
 		description: 'This project is a text-based word search game where users find hidden words in a grid, use hints if needed, and play until they exit.',
 		image: '/word_search.png',
-		link: ""
+		link: "https://github.com/asralov/wordSearchGame"
 	},
 	{
 		id: 4,
