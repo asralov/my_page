@@ -9,6 +9,13 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const projects = [
 	{
+		id: 0,
+		title: 'Hasty Judgement',
+		description: 'Fast-paced multiplayer chaos where angels, demons, and humans collide, and every decision shapes fate. Judge wisely… or face the consequences.',
+		image: '/hj.png',
+		link: 'https://asralov.itch.io/hasty-judgement'
+	},
+	{
 		id: 1,
 		title: 'Algo Playground',
 		description: 'A non-profit educational platform that helps users learn algorithms and data structures through interactive visualizations.',
