@@ -163,7 +163,8 @@ export default function ProjectsSection() {
 						</button>
 					</div>
 				</div>
-
+ 
+ 
 				{/* SCROLL */}
 				{/* SCROLL CONTAINER WITH LEFT/RIGHT BARS */}
 				<div className="relative">
