@@ -25,12 +25,14 @@ export default function MinimalModernPortfolio() {
 					className="absolute w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-3xl top-[-100px] left-[-100px]"
 					animate={{ x: [0, 120, 0], y: [0, 60, 0] }}
 					transition={{ duration: 20, repeat: Infinity }}
+					style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
 				/>
 
 				<motion.div
 					className="absolute w-[400px] h-[400px] bg-blue-500/20 rounded-full blur-3xl bottom-[-100px] right-[-100px]"
 					animate={{ x: [0, -120, 0], y: [0, -60, 0] }}
 					transition={{ duration: 25, repeat: Infinity }}
+					style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
 				/>
 			</div>
 
