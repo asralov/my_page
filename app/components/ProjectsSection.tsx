@@ -1,114 +1,226 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
 
 const projects = [
 	{
 		id: 1,
+		title: 'Algo Playground',
+		description: 'A non-profit educational platform that helps users learn algorithms and data structures through interactive visualizations.',
+		image: '/algo_playground.png',
+		link: 'https://asralov.github.io/algo_playground/',
+	},
+	{
+		id: 2,
+		title: 'GPU Sales and Value Tracker',
+		description: 'A Python-based data analysis project using NumPy and Pandas, leveraging SerpAPI to track real-time GPU prices from eBay.',
+		image: '/gpu_image.jpg',
+		link: 'https://colab.research.google.com/drive/1RWs8o2DybkxKADhrAwubLUsLkBbf0zre?usp=sharing'
+	},
+	{
+		id: 3,
 		title: 'Lose The Bias',
-		description: `We created a web app that shows ChatGPT news summaries, lets users personalize topics, and engage through likes and comments.`,
+		description: 'A personalized news platform powered by AI, featuring summaries and user engagement tools.',
 		image: '/chatgpt.jpg',
 		link: "https://github.com/asralov/csc337-final-project"
 	},
 	{
-		id: 2,
+		id: 4,
 		title: 'Trie Data Structure',
-		description: 'We implemented a Trie data structure in Java, designed for fast string storage and retrieval, commonly used in tasks like autocomplete and dictionaries.',
+		description: 'A Java implementation of a Trie for efficient string storage and fast lookup operations.',
 		image: '/trie.jpg',
 		link: "https://github.com/asralov/CSC-345-Group-Project"
 	},
 	{
-		id: 3,
+		id: 5,
 		title: 'Word Search Game',
-		description: 'This project is a text-based word search game where users find hidden words in a grid, use hints if needed, and play until they exit.',
+		description: 'A text-based word search game with interactive gameplay and built-in hint mechanics.',
 		image: '/word_search.png',
 		link: "https://github.com/asralov/wordSearchGame"
 	},
 	{
-		id: 4,
+		id: 6,
 		title: 'From Bud To Bloom',
-		description: 'From Bud to Bloom is a 2D Unity game about plant growth and interactive environments, winning first place in the \'Bloom into the New\' Game Jam.',
+		description: 'An award-winning Unity game focused on plant growth and interactive environments.',
 		image: '/bud_bloom.png',
 		link: "https://pulyau.itch.io/from-bud-to-bloom"
 	},
 	{
-		id: 5,
+		id: 7,
 		title: "Fishing Simulator 2D",
-		description: 'Fishing Simulator 2D is a Unity game jam project where players catch fish and explore ocean environments, featuring responsive fishing mechanics and hand-drawn assets.',
+		description: 'A Unity-based fishing game featuring ocean exploration and responsive mechanics.',
 		image: '/fishing.png',
 		link: "https://pulyau.itch.io/fishing-simulator-2d"
 	},
 	{
-		id: 6,
+		id: 8,
 		title: "Before The Flush",
-		description: 'Before The Flush is a humorous 3D Unity runner where a desperate boy races through maze-like environments, racing the clock to reach the restroom.',
+		description: 'A fast-paced 3D runner with humorous gameplay and time-based challenges.',
 		image: '/before_flush.png',
 		link: 'https://asralov.itch.io/before-the-flush'
 	},
 	{
-		id: 7,
+		id: 9,
 		title: 'The Last Hero',
-		description: 'A 2D game inspired by the song The Last Hero by Viktor Tsoi, where the final hero must face off against a witch in a dramatic showdown.',
+		description: 'A 2D boss fight game inspired by Viktor Tsoys song The Last Hero.',
 		image: '/lh.png',
 		link: 'https://pulyau.itch.io/the-last-hero'
 	},
 	{
-		id: 8,
+		id: 10,
 		title: 'Checkers',
-		description: 'We created a Checkers game with PvP and PvC modes, featuring a GUI and standard Checkers rules.',
+		description: 'A complete Checkers game with a graphical interface and AI opponent.',
 		image: '/checkers.png',
 		link: 'https://github.com/asralov/CS335-Final-Project'
 	}
 ];
 
 export default function ProjectsSection() {
-	return (
-		<section className="py-12 md:py-20 px-4 max-w-7xl mx-auto">
-			<motion.h2
-				initial={{ opacity: 0, y: 20 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				viewport={{ once: true }}
-				transition={{ duration: 0.6 }}
-				className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center text-gray-800"
-			>
-				Personal Projects
-			</motion.h2>
+	const scrollRef = useRef<HTMLDivElement>(null);
+	const [isHovered, setIsHovered] = useState(false);
+	const [index, setIndex] = useState(0);
 
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-				{projects.map((project) => (
-					<motion.div
-						key={project.id}
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.6, delay: project.id * 0.1 }}
-						whileHover={{ scale: 1.02 }}
-						className="group relative aspect-video bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] transition-all duration-300"
+	const GAP = 24; // matches gap-6
+
+	const loopedProjects = projects;
+
+	const scroll = (dir: 'left' | 'right') => {
+		const container = scrollRef.current;
+		if (!container) return;
+
+		const card = container.children[0];
+		if (!card) return;
+
+		const cardWidth = card.clientWidth + GAP;
+
+		let newIndex = dir === 'left' ? index - 1 : index + 1;
+
+		// infinite looping bounds
+		if (newIndex < 0) newIndex = projects.length - 1;
+		if (newIndex >= projects.length) newIndex = 0;
+
+		container.scrollTo({
+			left: newIndex * cardWidth,
+			behavior: 'smooth'
+		});
+
+		setIndex(newIndex);
+	};
+
+	useEffect(() => {
+		if (isHovered) return;
+
+		const interval = setInterval(() => {
+			scroll('right');
+		}, 4000);
+
+		return () => clearInterval(interval);
+	}, [isHovered, index]);
+
+	useEffect(() => {
+		const container = scrollRef.current;
+		if (!container) return;
+
+		const card = container.children[0];
+		if (!card) return;
+
+		const cardWidth = card.clientWidth + GAP;
+
+		// start in middle of duplicated array
+		container.scrollLeft = projects.length * cardWidth;
+		setIndex(projects.length);
+	}, []);
+
+	return (
+		<section className="relative py-20 overflow-hidden bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 mb-1">
+
+			<div className="relative z-10 max-w-7xl mx-auto px-6">
+
+				{/* HEADER + BUTTONS */}
+				<div className="flex justify-between items-center mb-10">
+					<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+						Projects
+					</h2>
+
+					<div className="flex gap-3">
+						<button
+							onClick={() => scroll('left')}
+							className="p-3 bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/10 backdrop-blur-md transition"
+						>
+							<ChevronLeft size={20} />
+						</button>
+
+						<button
+							onClick={() => scroll('right')}
+							className="p-3 bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/10 backdrop-blur-md transition"
+						>
+							<ChevronRight size={20} />
+						</button>
+					</div>
+				</div>
+
+				{/* SCROLL */}
+				{/* SCROLL CONTAINER WITH LEFT/RIGHT BARS */}
+				<div className="relative">
+					{/* Left Bar */}
+					<div className="absolute left-0 top-0 h-full w-4 bg-gradient-to-r from-white/20 to-transparent pointer-events-none z-20 rounded-l-xl"></div>
+					{/* Right Bar */}
+					<div className="absolute right-0 top-0 h-full w-4 bg-gradient-to-l from-white/20 to-transparent pointer-events-none z-20 rounded-r-xl"></div>
+
+					<div
+						ref={scrollRef}
+						onMouseEnter={() => setIsHovered(true)}
+						onMouseLeave={() => setIsHovered(false)}
+						className="flex gap-6 overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth pl-2 pr-2"
 					>
-						<Image src={project.image} alt={project.title} fill className="object-cover transition-transform duration-300 group-hover:scale-105" />
-						<div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90 group-hover:to-black/95 transition-colors duration-300" />
-						<div className="absolute inset-0 p-6 flex flex-col justify-end">
-							<h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
-							<p className="text-gray-200 mb-4 line-clamp-2">{project.description}</p>
-							<div className="flex gap-4">
-								{/* <Link
-									href="#"
-									className="text-sm px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-full transition-all duration-300 backdrop-blur-sm"
-								>
-									View Project
-								</Link> */}
-								<Link
-									href={project.link}
-									className="text-sm px-4 py-2 bg-white hover:bg-gray-100 text-gray-900 rounded-full transition-all duration-300 backdrop-blur-sm"
-								>
-									Check it
-								</Link>
-							</div>
-						</div>
-					</motion.div>
-				))}
+						{loopedProjects.map((project, i) => (
+							<motion.div
+								key={i}
+								className="
+									flex-shrink-0
+									w-full
+									sm:w-[calc((100%-24px)/2)]
+									lg:w-[calc((100%-48px)/3)]
+								"
+							>
+								<div className="group rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md hover:scale-[1.02] transition">
+									<div className="relative h-56 w-full">
+										<Image
+											src={project.image}
+											alt={project.title}
+											fill
+											className="object-cover group-hover:scale-110 transition-transform duration-500"
+										/>
+									</div>
+
+									<div className="p-6">
+										<h3 className="text-xl font-semibold text-white mb-2">
+											{project.title}
+										</h3>
+
+										<p className="text-gray-400 text-sm mb-4">
+											{project.description}
+										</p>
+
+										<Link
+											href={project.link}
+											target="_blank"
+											className="inline-block text-sm px-5 py-2 bg-white text-black rounded-full hover:bg-gray-200 transition"
+										>
+											View Project
+										</Link>
+									</div>
+								</div>
+							</motion.div>
+						))}
+					</div>
+				</div>
+
 			</div>
 		</section>
 	);

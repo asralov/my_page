@@ -1,52 +1,75 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function HeroSection() {
 	return (
-		<motion.section
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			transition={{ duration: 1 }}
-			className="h-screen flex items-center justify-center relative overflow-hidden"
-		>
-			<div className="absolute inset-0 bg-gradient-to-br from-blue-300 to-purple-400" />
-			<div className="absolute inset-0">
-				{/* [radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.7),rgba(255,255,255,1))] */}
-				<div className="absolute inset-0 bg-blue-100" />
-			</div>
+		
+		<section className="h-screen flex items-center justify-center relative overflow-hidden bg-black/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 mb-1">
+			{/*[#0f172a] */}
+			{/* Background gradient
+			<div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#020617]" />
 
-			<div className="relative z-10 text-center">
+			
+			<div className="absolute w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-3xl top-[-100px] left-[-100px]" />
+			<div className="absolute w-[400px] h-[400px] bg-purple-500/20 rounded-full blur-3xl bottom-[-100px] right-[-100px]" /> */}
+
+			<div className="relative z-10 text-center px-6">
+				
+				{/* Profile Image */}
+				<motion.div
+					initial={{ opacity: 0, scale: 0.8 }}
+					animate={{ opacity: 1, scale: 1 }}
+					transition={{ duration: 0.6 }}
+					className="mb-6 flex justify-center"
+				>
+					<div className="relative w-32 h-32 md:w-40 md:h-40">
+						<Image
+							src="/profile.jpg" // <-- put your image in /public
+							alt="Abror Asralov"
+							fill
+							className="rounded-full object-cover border-4 border-white/10 shadow-xl"
+						/>
+					</div>
+				</motion.div>
+
+				{/* Name */}
 				<motion.h1
-					initial={{ y: 50 }}
-					animate={{ y: 0 }}
-					transition={{ duration: 0.8, delay: 0.2 }}
-					className="text-4xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-black"
+					initial={{ y: 30, opacity: 0 }}
+					animate={{ y: 0, opacity: 1 }}
+					transition={{ duration: 0.6, delay: 0.2 }}
+					className="text-4xl md:text-6xl font-extrabold tracking-tight text-white"
+					style={{ fontFamily: 'Inter, sans-serif' }}
 				>
 					Abror Asralov
 				</motion.h1>
-				<motion.p
-					initial={{ y: 50, opacity: 0 }}
-					animate={{ y: 0, opacity: 1 }}
-					transition={{ duration: 0.8, delay: 0.4 }}
-					className="text-lg md:text-xl text-gray-600 mb-8 px-4"
-				>
-					Student Developer - University of Arizona
-				</motion.p>
-			</div>
 
-			<motion.div
-				initial={{ y: 50, opacity: 0 }}
-				animate={{ y: 0, opacity: 1 }}
-				transition={{ duration: 0.8, delay: 0.6 }}
-				className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-			>
-				<div className="animate-bounce">
-					<svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-					</svg>
-				</div>
-			</motion.div>
-		</motion.section>
+				{/* Subtitle */}
+				<motion.p
+					initial={{ y: 30, opacity: 0 }}
+					animate={{ y: 0, opacity: 1 }}
+					transition={{ duration: 0.6, delay: 0.4 }}
+					className="mt-4 text-lg md:text-xl text-gray-300 max-w-xl mx-auto"
+				>
+					Computer Science Student with minor in Artificial Intelligence 
+			    	at University of Arizona. Focused on building scalable systems 
+					and clean user experiences
+				</motion.p>
+
+				{/* Optional: small highlight badge */}
+				<motion.div
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ delay: 0.8 }}
+					className="mt-6"
+				>
+					<span className="px-4 py-2 text-sm bg-white/10 text-gray-200 rounded-full backdrop-blur-md border border-white/10">
+						Open to full-time SWE positions
+					</span>
+				</motion.div>
+
+			</div>
+		</section>
 	);
 }
