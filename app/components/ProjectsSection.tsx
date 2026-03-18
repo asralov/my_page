@@ -9,77 +9,77 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const projects = [
 	{
-		id: 0,
+		id: 1,
 		title: 'Hasty Judgement',
 		description: 'Fast-paced multiplayer chaos where angels, demons, and humans collide, and every decision shapes fate. Judge wisely… or face the consequences.',
 		image: '/hj.png',
 		link: 'https://asralov.itch.io/hasty-judgement'
 	},
 	{
-		id: 1,
+		id: 2,
 		title: 'Algo Playground',
 		description: 'A non-profit educational platform that helps users learn algorithms and data structures through interactive visualizations.',
 		image: '/algo_playground.png',
 		link: 'https://asralov.github.io/algo_playground/',
 	},
 	{
-		id: 2,
+		id: 3,
 		title: 'GPU Sales and Value Tracker',
 		description: 'A Python-based data analysis project using NumPy and Pandas, leveraging SerpAPI to track real-time GPU prices from eBay.',
 		image: '/gpu_image.jpg',
 		link: 'https://colab.research.google.com/drive/1RWs8o2DybkxKADhrAwubLUsLkBbf0zre?usp=sharing'
 	},
 	{
-		id: 3,
+		id: 4,
 		title: 'Lose The Bias',
 		description: 'A personalized news platform powered by AI, featuring summaries and user engagement tools.',
 		image: '/chatgpt.jpg',
 		link: "https://github.com/asralov/csc337-final-project"
 	},
 	{
-		id: 4,
+		id: 5,
 		title: 'Trie Data Structure',
 		description: 'A Java implementation of a Trie for efficient string storage and fast lookup operations.',
 		image: '/trie.jpg',
 		link: "https://github.com/asralov/CSC-345-Group-Project"
 	},
 	{
-		id: 5,
+		id: 6,
 		title: 'Word Search Game',
 		description: 'A text-based word search game with interactive gameplay and built-in hint mechanics.',
 		image: '/word_search.png',
 		link: "https://github.com/asralov/wordSearchGame"
 	},
 	{
-		id: 6,
+		id: 7,
 		title: 'From Bud To Bloom',
 		description: 'An award-winning Unity game focused on plant growth and interactive environments.',
 		image: '/bud_bloom.png',
 		link: "https://pulyau.itch.io/from-bud-to-bloom"
 	},
 	{
-		id: 7,
+		id: 8,
 		title: "Fishing Simulator 2D",
 		description: 'A Unity-based fishing game featuring ocean exploration and responsive mechanics.',
 		image: '/fishing.png',
 		link: "https://pulyau.itch.io/fishing-simulator-2d"
 	},
 	{
-		id: 8,
+		id: 9,
 		title: "Before The Flush",
 		description: 'A fast-paced 3D runner with humorous gameplay and time-based challenges.',
 		image: '/before_flush.png',
 		link: 'https://asralov.itch.io/before-the-flush'
 	},
 	{
-		id: 9,
+		id: 10,
 		title: 'The Last Hero',
 		description: 'A 2D boss fight game inspired by Viktor Tsoys song The Last Hero.',
 		image: '/lh.png',
 		link: 'https://pulyau.itch.io/the-last-hero'
 	},
 	{
-		id: 10,
+		id: 11,
 		title: 'Checkers',
 		description: 'A complete Checkers game with a graphical interface and AI opponent.',
 		image: '/checkers.png',
