@@ -3,76 +3,95 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
 const geistSans = Geist({
-	variable: '--font-geist-sans',
-	subsets: ['latin'],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-	variable: '--font-geist-mono',
-	subsets: ['latin'],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-	title: 'Abrorjon Asralov - Software Developer',
-	description:
-		'Welcome to my portfolio! I am a passionate software developer with a focus on clean, minimal, and effective solutions. I believe in the power of simplicity and thoughtful design to create impactful digital experiences.',
-	keywords: [
-		'Software Developer',
-		'Clean Code',
-		'Minimal Design',
-		'Modern Development',
-		'Web Development',
-		'User Experience',
-		'Design Systems',
-		'JavaScript',
-		'TypeScript',
-		'React',
-		'Next.js',
-		'Performance',
-		'Accessibility',
-		'Minimalist Portfolio',
-		'Abrorjon Asralov',
-	],
-	authors: [{ name: 'Abrorjon Asralov' }],
-	creator: 'Abrorjon Asralov',
-	openGraph: {
-		title: 'Abrorjon Asralov - Software Developer Portfolio',
-		description: 'Passionate software developer creating clean, minimal, and effective digital solutions. Explore my work and development philosophy.',
-		url: 'https://asralov.dev',
-		siteName: 'Abrorjon Asralov - Portfolio',
-		images: [
-			{
-				url: '/og-image.jpg',
-				width: 1200,
-				height: 630,
-				alt: 'Abrorjon Asralov - Modern Minimal Portfolio',
-			},
-		],
-		locale: 'en_US',
-		type: 'website',
-	},
-	
-	robots: {
-		index: true,
-		follow: true,
-		googleBot: {
-			index: true,
-			follow: true,
-			'max-video-preview': -1,
-			'max-image-preview': 'large',
-			'max-snippet': -1,
-		},
-	},
+  // 1. Fixes the metadataBase warning
+  metadataBase: new URL('https://asralov.dev'),
+  
+  title: {
+    default: 'Abrorjon Asralov | Software Engineer & AI Specialist',
+    template: '%s | Abrorjon Asralov',
+  },
+  description:
+    'Software Engineer & AI Specialist. University of Arizona CS graduate specializing in high-throughput full-stack platforms, distributed systems, and machine learning applications.',
+  keywords: [
+    'Abrorjon Asralov',
+    'Abror Asralov',
+    'Software Engineer',
+    'AI Specialist',
+    'Full Stack Engineer',
+    'Distributed Systems',
+    'Machine Learning',
+    'University of Arizona CS',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Java',
+    'Python',
+  ],
+  authors: [{ name: 'Abrorjon Asralov', url: 'https://asralov.dev' }],
+  creator: 'Abrorjon Asralov',
+  publisher: 'Abrorjon Asralov',
+  
+  // 2. Open Graph Optimization
+  openGraph: {
+    title: 'Abrorjon Asralov | Software Engineer & AI Specialist',
+    description:
+      'Building scalable full-stack applications, distributed platforms, and machine learning solutions.',
+    url: 'https://asralov.dev',
+    siteName: 'Abrorjon Asralov Portfolio',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Abrorjon Asralov - Software Engineer Portfolio',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+
+  // 3. Twitter Card
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Abrorjon Asralov | Software Engineer & AI Specialist',
+    description:
+      'Building scalable full-stack applications, distributed platforms, and machine learning solutions.',
+    images: ['/og-image.jpg'],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
-	children,
+  children,
 }: Readonly<{
-	children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-	return (
-		<html lang="en">
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
-		</html>
-	);
+  return (
+    <html lang="en" className={`scroll-smooth ${geistSans.variable} ${geistMono.variable}`}>
+      <body className="font-sans bg-white text-slate-900 antialiased selection:bg-teal-100 selection:text-teal-900">
+        {children}
+      </body>
+    </html>
+  );
 }

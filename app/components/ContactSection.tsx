@@ -1,108 +1,180 @@
 'use client';
 
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Mail, Github, Linkedin, MapPin, Copy, Check, ArrowUpRight } from 'lucide-react';
 
-export default function ContactSection() {
-	return (
-		<section className="py-12 md:py-20 px-4 bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 mb-1">
-			<div className="max-w-3xl mx-auto text-center">
-				<motion.h2
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true }}
-					transition={{ duration: 0.6 }}
-					className="text-3xl md:text-4xl font-bold mb-4 text-white"
-				>
-					Let&apos;s Connect
-				</motion.h2>
+export default function ContactSection(): React.JSX.Element {
+  const [copied, setCopied] = useState(false);
+  const email = 'asrolovabror@gmail.com';
 
-				<motion.p
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true }}
-					transition={{ duration: 0.6, delay: 0.2 }}
-					className="text-gray-600 mb-6 text-center max-w-xl mx-auto"
-				>
-					I&apos;m currently exploring full-time opportunities in the tech industry and would love to contribute to exciting projects. I enjoy collaborating with teams, solving challenging problems, and bringing creativity into my work. Outside of coding, I play the guitar and explore art to stay inspired.
-				</motion.p>
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true }}
-					transition={{ duration: 0.6, delay: 0.3 }}
-					className="flex items-center justify-center gap-2 text-gray-600 mb-8"
-				>
-					<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-						<path
-							fillRule="evenodd"
-							d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-							clipRule="evenodd"
-						/>
-					</svg>
-					<span>United States</span>
-				</motion.div>
+  const scrollToTop = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const homeElement = document.getElementById('home');
+    if (homeElement) {
+      homeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
+  return (
+    <section id="contact" className="relative bg-white px-6 py-24 border-t border-slate-100 overflow-hidden">
+      <div aria-hidden="true" className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-40" />
+      </div>
 
+      <div className="relative z-10 max-w-5xl mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-xs font-mono font-semibold tracking-wider text-teal-600 uppercase"
+          >
+            Get In Touch
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight mt-1"
+          >
+            Let's Connect
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed"
+          >
+            I'm currently actively exploring full-time Software Engineering roles. 
+            Whether you have an open opportunity or just want to chat tech, feel free to reach out!
+          </motion.p>
+        </div>
 
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true }}
-					transition={{ duration: 0.6, delay: 0.5 }}
-					className="flex justify-center gap-6"
-				>
-				
-				{/* GitHub */}
-				<a
-					href="https://github.com/asralov"
-					target="_blank"
-					rel="noopener noreferrer"
-					className="w-12 h-12 flex items-center justify-center bg-gray-100 text-gray-800 rounded-full hover:bg-gray-200 transition-colors"
-				>
-					<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-					<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-					</svg>
-				</a>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mb-12 p-8 rounded-3xl bg-indigo-950 text-white shadow-xl relative overflow-hidden"
+        >
+          <div aria-hidden="true" className="absolute top-0 right-0 -mt-8 -mr-8 w-48 h-48 bg-teal-500/10 rounded-full blur-2xl pointer-events-none" />
+          
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <span className="text-xs font-mono text-teal-400 font-medium">Direct Email</span>
+              <h3 className="text-2xl sm:text-3xl font-bold mt-1 text-white">{email}</h3>
+            </div>
 
-				{/* LinkedIn */}
-				<a
-					href="https://www.linkedin.com/in/abrorjon-asralov/"
-					target="_blank"
-					rel="noopener noreferrer"
-					className="w-12 h-12 flex items-center justify-center bg-gray-100 text-gray-800 rounded-full hover:bg-gray-200 transition-colors"
-				>
-					<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-					<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-					</svg>
-				</a>
+            <div className="flex items-center gap-3 w-full md:w-auto">
+              <a
+                href={`mailto:${email}`}
+                className="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold bg-teal-600 hover:bg-teal-500 text-white transition-all duration-200"
+              >
+                <Mail size={16} />
+                Send Email
+              </a>
 
-				{/* Email */}
-				<a
-					href="mailto:asralov@arizona.edu"
-					className="w-12 h-12 flex items-center justify-center bg-gray-100 text-gray-800 rounded-full hover:bg-gray-200 transition-colors"
-				>
-					<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-					<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-					<path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-					</svg>
-				</a>
-				
-					{/* <a
-						href="https://twitter.com"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="p-2 bg-gray-100 text-gray-800 rounded-full hover:bg-gray-200 transition-colors"
-					>
-						<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-							<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-						</svg>
-					</a> */}
-				</motion.div>
-			</div>
-			<footer className="mt-12 py-6 text-center text-gray-500 text-sm">
-				&copy; 2026 Abror Asralov. All rights reserved.
-			</footer>
-		</section>
-	);
+              <button
+                type="button"
+                onClick={handleCopy}
+                className="inline-flex items-center justify-center p-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors cursor-pointer"
+                title="Copy email to clipboard"
+                aria-label="Copy email address"
+              >
+                {copied ? <Check size={18} className="text-teal-400" /> : <Copy size={18} />}
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16"
+        >
+          <a
+            href="https://github.com/asralov"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-between p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:border-teal-300 hover:shadow-md transition-all duration-200"
+          >
+            <div className="flex items-center gap-3.5">
+              <div className="p-2.5 rounded-xl bg-slate-100 text-slate-800 group-hover:bg-indigo-950 group-hover:text-teal-400 transition-colors">
+                <Github size={20} />
+              </div>
+              <div>
+                <p className="text-xs font-mono text-slate-400">GitHub</p>
+                <p className="text-sm font-bold text-slate-900">/asralov</p>
+              </div>
+            </div>
+            <ArrowUpRight size={16} className="text-slate-400 group-hover:text-teal-600 transition-colors" />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/abrorjon-asralov/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-between p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:border-teal-300 hover:shadow-md transition-all duration-200"
+          >
+            <div className="flex items-center gap-3.5">
+              <div className="p-2.5 rounded-xl bg-slate-100 text-slate-800 group-hover:bg-indigo-950 group-hover:text-teal-400 transition-colors">
+                <Linkedin size={20} />
+              </div>
+              <div>
+                <p className="text-xs font-mono text-slate-400">LinkedIn</p>
+                <p className="text-sm font-bold text-slate-900">/abrorjon-asralov</p>
+              </div>
+            </div>
+            <ArrowUpRight size={16} className="text-slate-400 group-hover:text-teal-600 transition-colors" />
+          </a>
+
+          <div className="flex items-center gap-3.5 p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+            <div className="p-2.5 rounded-xl bg-teal-50 text-teal-600">
+              <MapPin size={20} />
+            </div>
+            <div>
+              <p className="text-xs font-mono text-slate-400">Location</p>
+              <p className="text-sm font-bold text-slate-900">United States</p>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="p-6 rounded-2xl bg-slate-50 border-l-4 border-teal-500 text-slate-700 text-sm leading-relaxed max-w-3xl mx-auto"
+        >
+          <p>
+            <strong className="text-slate-950 font-semibold">Beyond the Code:</strong> I enjoy collaborating with high-performing teams, solving challenging algorithmic problems, and bringing structured design into complex products. Outside of engineering, I play the guitar and explore creative art to stay curious and inspired.
+          </p>
+        </motion.div>
+
+        <footer className="mt-20 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+          <p>&copy; 2026 Abror Asralov. All rights reserved.</p>
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="hover:text-teal-600 transition-colors cursor-pointer"
+          >
+            Back to Top ↑
+          </button>
+        </footer>
+      </div>
+    </section>
+  );
 }
