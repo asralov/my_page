@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Code2, Cpu, Gamepad2, Layers } from 'lucide-react';
+import { ExternalLink, Code2, Cpu, Gamepad2, Layers, Download } from 'lucide-react';
 
 interface Project {
   id: number;
@@ -12,6 +12,7 @@ interface Project {
   description: string;
   tags: string[];
   link: string;
+  downloadLink?: string;
 }
 
 const projects: Project[] = [
@@ -58,10 +59,11 @@ const projects: Project[] = [
   {
     id: 6,
     title: 'Interactive Word Search Engine',
-    category: 'algo',
-    description: 'Text-based word processing engine featuring recursive grid matching and real-time hint mechanisms.',
-    tags: ['Java', 'Algorithms', 'CLI'],
-    link: 'https://github.com/asralov/wordSearchGame'
+    category: 'game',
+    description: 'Desktop application featuring an immersive UI/UX built with Pygame. Utilizes advanced DSAs like Trie and DFS algorithms to discover all possible words efficiently, successfully scaling up performance from N³ brute-force.',
+    tags: ['Python', 'Pygame', 'Trie', 'DFS'],
+    link: 'https://github.com/asralov/wordSearchGame',
+    downloadLink: 'https://github.com/asralov/wordSearchGame/releases/latest/download/Game.exe'
   },
   {
     id: 7,
@@ -214,15 +216,29 @@ export default function ProjectsSection(): React.JSX.Element {
                     ))}
                   </div>
 
-                  <Link
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-semibold text-indigo-950 hover:text-teal-600 transition-colors"
-                  >
-                    View Details
-                    <span className="text-xs">→</span>
-                  </Link>
+                  <div className="flex items-center gap-3 pt-2 border-t border-slate-100">
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-950 hover:text-teal-600 transition-colors"
+                    >
+                      <span>GitHub</span>
+                      <ExternalLink size={12} />
+                    </Link>
+
+                    {project.downloadLink && (
+                      <Link
+                        href={project.downloadLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-teal-600 text-white hover:bg-teal-700 transition-colors shadow-sm ml-auto"
+                      >
+                        <Download size={12} />
+                        <span>Download .exe</span>
+                      </Link>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}
