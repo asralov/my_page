@@ -63,7 +63,7 @@ const projects: Project[] = [
     description: 'Desktop application featuring an immersive UI/UX built with Pygame. Utilizes advanced DSAs like Trie and DFS algorithms to discover all possible words efficiently, successfully scaling up performance from N³ brute-force.',
     tags: ['Python', 'Pygame', 'Trie', 'DFS'],
     link: 'https://github.com/asralov/wordSearchGame',
-    downloadLink: 'https://github.com/asralov/wordSearchGame/releases/latest/download/Game.exe'
+    downloadLink: 'https://github.com/asralov/wordSearchGame/releases/download/v1.0.0/Game.exe'
   },
   {
     id: 7,
