@@ -1,84 +1,46 @@
-import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.css';
+import type { Metadata } from "next";
+import { Geist, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import "./globals.css";
 
 const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+const geistMono = JetBrains_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
 
+const display = Space_Grotesk({
+  variable: "--font-display",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const title = "Abror Asralov — Software Engineer";
+const description =
+  "Software engineer building web applications and engineering tools. Explore Storm, a local-first HTTP performance testing tool, and more projects by Abror Asralov.";
 export const metadata: Metadata = {
-  // 1. Fixes the metadataBase warning
-  metadataBase: new URL('https://asralov.dev'),
-  
-  title: {
-    default: 'Abrorjon Asralov | Software Engineer & AI Specialist',
-    template: '%s | Abrorjon Asralov',
-  },
-  description:
-    'Software Engineer & AI Specialist. University of Arizona CS graduate specializing in high-throughput full-stack platforms, distributed systems, and machine learning applications.',
-  keywords: [
-    'Abrorjon Asralov',
-    'Abror Asralov',
-    'Software Engineer',
-    'AI Specialist',
-    'Full Stack Engineer',
-    'Distributed Systems',
-    'Machine Learning',
-    'University of Arizona CS',
-    'React',
-    'Next.js',
-    'TypeScript',
-    'Java',
-    'Python',
-  ],
-  authors: [{ name: 'Abrorjon Asralov', url: 'https://asralov.dev' }],
-  creator: 'Abrorjon Asralov',
-  publisher: 'Abrorjon Asralov',
-  
-  // 2. Open Graph Optimization
+  metadataBase: new URL("https://asralov.vercel.app"),
+  title,
+  description,
+  alternates: { canonical: "/" },
+  authors: [{ name: "Abror Asralov" }],
   openGraph: {
-    title: 'Abrorjon Asralov | Software Engineer & AI Specialist',
-    description:
-      'Building scalable full-stack applications, distributed platforms, and machine learning solutions.',
-    url: 'https://asralov.dev',
-    siteName: 'Abrorjon Asralov Portfolio',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Abrorjon Asralov - Software Engineer Portfolio',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
+    title,
+    description,
+    url: "/",
+    siteName: title,
+    type: "website",
+    locale: "en_US",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: title }],
   },
-
-  // 3. Twitter Card
   twitter: {
-    card: 'summary_large_image',
-    title: 'Abrorjon Asralov | Software Engineer & AI Specialist',
-    description:
-      'Building scalable full-stack applications, distributed platforms, and machine learning solutions.',
-    images: ['/og-image.jpg'],
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/opengraph-image"],
   },
 };
 
@@ -88,10 +50,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${geistSans.variable} ${geistMono.variable}`}>
-      <body className="font-sans bg-white text-slate-900 antialiased selection:bg-teal-100 selection:text-teal-900">
-        {children}
-      </body>
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} ${display.variable}`}
+    >
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }

@@ -1,0 +1,32 @@
+[
+  {
+    "width": 375,
+    "initialLayoutShiftSum": 0,
+    "overflow": false,
+    "consoleErrors": []
+  },
+  {
+    "width": 430,
+    "initialLayoutShiftSum": 0,
+    "overflow": false,
+    "consoleErrors": []
+  },
+  {
+    "width": 768,
+    "initialLayoutShiftSum": 0,
+    "overflow": false,
+    "consoleErrors": []
+  },
+  {
+    "width": 1024,
+    "initialLayoutShiftSum": 0,
+    "overflow": false,
+    "consoleErrors": []
+  },
+  {
+    "width": 1440,
+    "initialLayoutShiftSum": 0,
+    "overflow": false,
+    "consoleErrors": []
+  }
+]

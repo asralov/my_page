@@ -1,0 +1,67 @@
+[
+  {
+    "url": "https://asralov.itch.io/hasty-judgement",
+    "status": 200,
+    "finalUrl": "https://asralov.itch.io/hasty-judgement"
+  },
+  {
+    "url": "https://asralov.github.io/algo_playground/",
+    "status": 200,
+    "finalUrl": "https://asralov.github.io/algo_playground/"
+  },
+  {
+    "url": "https://colab.research.google.com/drive/1RWs8o2DybkxKADhrAwubLUsLkBbf0zre?usp=sharing",
+    "status": 200,
+    "finalUrl": "https://colab.research.google.com/drive/1RWs8o2DybkxKADhrAwubLUsLkBbf0zre?usp=sharing"
+  },
+  {
+    "url": "https://github.com/asralov/csc337-final-project",
+    "status": 200,
+    "finalUrl": "https://github.com/asralov/csc337-final-project"
+  },
+  {
+    "url": "https://github.com/asralov/CSC-345-Group-Project",
+    "status": 200,
+    "finalUrl": "https://github.com/asralov/CSC-345-Group-Project"
+  },
+  {
+    "url": "https://github.com/asralov/wordSearchGame",
+    "status": 200,
+    "finalUrl": "https://github.com/asralov/wordSearchGame"
+  },
+  {
+    "url": "https://pulyau.itch.io/from-bud-to-bloom",
+    "status": 200,
+    "finalUrl": "https://pulyau.itch.io/from-bud-to-bloom"
+  },
+  {
+    "url": "https://pulyau.itch.io/fishing-simulator-2d",
+    "status": 200,
+    "finalUrl": "https://pulyau.itch.io/fishing-simulator-2d"
+  },
+  {
+    "url": "https://asralov.itch.io/before-the-flush",
+    "status": 200,
+    "finalUrl": "https://asralov.itch.io/before-the-flush"
+  },
+  {
+    "url": "https://pulyau.itch.io/the-last-hero",
+    "status": 200,
+    "finalUrl": "https://pulyau.itch.io/the-last-hero"
+  },
+  {
+    "url": "https://github.com/asralov/CS335-Final-Project",
+    "status": 200,
+    "finalUrl": "https://github.com/asralov/CS335-Final-Project"
+  },
+  {
+    "url": "https://github.com/asralov/storm",
+    "status": 200,
+    "finalUrl": "https://github.com/asralov/storm"
+  },
+  {
+    "url": "https://github.com/asralov/storm/releases/tag/v0.1.0-beta.1",
+    "status": 200,
+    "finalUrl": "https://github.com/asralov/storm/releases/tag/v0.1.0-beta.1"
+  }
+]

@@ -1,140 +1,60 @@
-# Minimalist Light Portfolio Template
+﻿# Abror Asralov — Software Engineer
 
-[Demo](https://www.devportfoliotemplates.com/portfolio-templates/minimalist-light)
+Personal portfolio built with Next.js App Router, React, TypeScript, Tailwind CSS, and Framer Motion. Production URL: https://asralov.vercel.app.
 
-## Getting Started
+## Local development
 
-You have two options to get started with this template:
+Use Node.js 22 LTS and npm. Stop an existing Next.js server before reinstalling dependencies on Windows to avoid native compiler file locks.
 
-### Option 1: Using Git Sparse Checkout
-
-If you want to clone only this specific template:
-
-```bash
-git clone --no-checkout https://github.com/devportfoliotemplates/devportfoliotemplates.git
-cd devportfoliotemplates
-git sparse-checkout init --cone
-git sparse-checkout set modern-minimal-light-portfolio-template
-git checkout
-```
-
-### Option 2: Direct Download
-
-You can download this template as a ZIP file:
-
-1. Visit [download-directory.github.io](https://download-directory.github.io/)
-2. Paste the URL of this portfolio folder: `https://github.com/devportfoliotemplates/devportfoliotemplates/tree/main/modern-minimal-light-portfolio-template`
-3. Download and extract the ZIP file
-
-### Running the Template
-
-Once you have the template:
-
-1. Install dependencies:
-
-```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-```
-
-2. Run the development server:
-
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser to see the portfolio.
+Open http://localhost:3000.
 
-## Customization
+## Production preview and checks
 
-### Personal Information
+```sh
+npm run lint
+npm run typecheck
+npm run build
+npm run start
+```
 
-1. Update metadata in `app/layout.tsx`:
+With the production server running, in another terminal:
 
-   - Site title
-   - Description
-   - Open Graph metadata
-   - Favicon
+```sh
+npm test
+npm audit
+npm audit --omit=dev
+```
 
-2. Modify content in `app/page.tsx`:
+The tests use Node's built-in test runner and require the server at http://localhost:3000. Set TEST_BASE_URL to test another local address.
 
-   - Hero section
-   - About section
-   - Projects
-   - Contact information
+## Editing content
 
-3. Replace assets:
-   - Replace images in the `public` directory
-   - Update social media icons
-   - Modify logo if needed
+- [Project data](app/data/projects.ts): typed records for the eleven additional projects.
+- [Featured Storm section](app/components/ProjectsSection.tsx): project copy, stack, screenshot and release links.
+- [Project grid](app/components/ProjectGrid.tsx): shared card presentation, ordering and category filters.
+- [Hero](app/components/HeroSection.tsx), [skills](app/components/SkillsSection.tsx), and [contact](app/components/ContactSection.tsx): personal content.
+- [Styles](app/globals.css) and [Tailwind configuration](tailwind.config.ts): shared spacing, fonts, motion and focus treatment.
+- [Layout metadata](app/layout.tsx) and [social image](app/opengraph-image.tsx): canonical URL and previews.
 
-### Styling
+The Storm screenshot is the original [dashboard image](https://github.com/asralov/storm/blob/main/docs/images/dashboard.png) from the owner's repository. Its card crops the tall screenshot visually; selecting it opens the complete image. Existing illustrative thumbnails are identified as illustrations in alt text.
 
-1. Colors and Theme:
-
-   - Customize colors in `tailwind.config.js`
-   - Modify theme variables in `app/globals.css`
-
-2. Typography:
-
-   - Update font families in `tailwind.config.js`
-   - Modify text sizes and weights
-
-3. Layout:
-   - Adjust spacing and padding in component files
-   - Modify responsive breakpoints in `tailwind.config.js`
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Build Errors**
-
-   - Ensure all dependencies are installed
-   - Clear `.next` folder and node_modules
-   - Run `npm install` again
-
-2. **Styling Issues**
-
-   - Run `npm run build` to ensure TailwindCSS classes are generated
-   - Check for conflicting styles in `globals.css`
-
-3. **Image Loading**
-   - Verify images are in the correct format (PNG, JPG, WebP)
-   - Check image paths are correct
-   - Ensure images are in the `public` directory
+The existing resume is preserved at [resume_updated.pdf](public/resume_updated.pdf). Confirm its contents are current before sharing it with employers.
 
 ## Deployment
 
-Follow these steps to deploy your portfolio for free using GitHub and Vercel:
+Use the existing Vercel Next.js project and the committed lockfile. No new secrets or services are required. Vercel Analytics is enabled only when VERCEL=1 during the build; local preview omits its unavailable endpoint. Canonical metadata assumes the production domain above. Security headers are defined in [next.config.ts](next.config.ts).
 
-1. Create a new GitHub repository
+Review the [validation report](docs/validation.md) before deploying. This change was not pushed, merged, or deployed.
 
-2. Push your portfolio to GitHub
+## Portfolio v3
 
-3. Deploy with Vercel:
-   - Go to [Vercel](https://vercel.com)
-   - Sign up or log in with GitHub
-   - Click "New Project"
-   - Import your GitHub repository
-   - Vercel will automatically detect Next.js
-   - Click "Deploy"
+See the [v3 design and verification report](docs/v3/README.md) for the Midnight Indigo palette, typography, project gallery behavior, before/after screenshots, and current browser checks. The previous v2 report remains historical.
 
-Your portfolio will be live in minutes with a free Vercel domain (e.g., `your-repo.vercel.app`). You can later add a custom domain in your Vercel project settings.
+The gallery initially shows 3 projects on mobile and 5 at widths of 768px or more, including Storm. View More reveals two at a time. All twelve projects and category filters remain available.
 
-## Support
-
-If you find these templates helpful, please consider:
-
-- Starring the repository ⭐
-- Sharing with other developers
-- [Buying me a coffee](https://www.buymeacoffee.com/andreiancu) ☕
-
-For issues and feature requests, please [create an issue](https://github.com/devportfoliotemplates/devportfoliotemplates/issues).
+After building, run `npm run test:browser` for the progressive-gallery and responsive tests. The test runner starts a production server on port 3001 and uses Microsoft Edge.
