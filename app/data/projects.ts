@@ -63,10 +63,10 @@ export const projects: Project[] = [
     id: 6,
     image: "/word_search.png",
     title: "Interactive Word Search Engine",
-    category: "algo",
+    category: "game",
     description:
       "Python word-search game with a Pygame interface, Trie-based word lookup, hints, and saved games.",
-    tags: ["Python", "Pygame", "Trie", "Algorithms"],
+    tags: ["Python", "Pygame", "Trie", "DFS"],
     link: "https://github.com/asralov/wordSearchGame",
     download: {
       url: "https://github.com/asralov/my_page/releases/download/v1.0.0/Game.exe",

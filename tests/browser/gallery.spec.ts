@@ -67,12 +67,12 @@ test("filters reset expansion and count only matching projects plus Storm", asyn
   await page.getByRole("button", { name: "Games", exact: true }).click();
   await expect(page.locator("[data-project]")).toHaveCount(3);
   await expect(page.getByRole("status").first()).toHaveText(
-    "Showing 3 of 6 projects · including featured Storm",
+    "Showing 3 of 7 projects · including featured Storm",
   );
   await page.getByRole("button", { name: "View more projects" }).click();
   await expect(page.locator("[data-project]")).toHaveCount(5);
   await page.getByRole("button", { name: "View more projects" }).click();
-  await expect(page.locator("[data-project]")).toHaveCount(6);
+  await expect(page.locator("[data-project]")).toHaveCount(7);
   await expect(page.locator("[data-project]").first()).toHaveAttribute(
     "data-project",
     "storm",
@@ -127,4 +127,13 @@ test("responsive initial counts and retained expansion on resize", async ({
   await expect(page.locator("[data-project]")).toHaveCount(5);
   await page.setViewportSize({ width: 1440, height: 900 });
   await expect(page.locator("[data-project]")).toHaveCount(7);
+});
+
+test('Word Search keeps its Windows download after filtering', async ({page}) => {
+  await page.setViewportSize({width:375,height:900});
+  await page.goto('/');
+  await page.getByRole('button',{name:'Games',exact:true}).click();
+  const card=page.locator('[data-project="6"]');
+  await expect(card).toBeVisible();
+  await expect(card.getByRole('link',{name:'Download for Windows (.exe)'})).toHaveAttribute('href','https://github.com/asralov/my_page/releases/download/v1.0.0/Game.exe');
 });
