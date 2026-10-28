@@ -64,7 +64,7 @@ export default function Navigation() {
             </a>
           ))}
           <a
-            href="/resume_updated.pdf"
+            href="/my_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="nav-resume"
